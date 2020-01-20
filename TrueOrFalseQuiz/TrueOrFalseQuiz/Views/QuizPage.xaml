@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TrueOrFalseQuiz.Views.QuizPage">
+    <ContentPage.Content>
+        <StackLayout Rotation="0">
+            <Label x:Name="QuestionCountLabel"
+                d:Text="Question 1 of 10"
+                FontSize="32"
+                Padding="4"
+                BackgroundColor="Black"
+                TextColor="White"
+                VerticalOptions="Start" 
+                HorizontalOptions="Fill"
+                HorizontalTextAlignment="Center" />
+
+            <Frame VerticalOptions="FillAndExpand"
+                   BackgroundColor="AntiqueWhite"
+                   Margin="16, 16, 16, 8"
+                   CornerRadius="20"
+                   BorderColor="BurlyWood">
+                <Label x:Name="FactTextLabel"
+                    Text="{Binding CurrentQuestionText}"
+                    d:Text="Fact goes here"
+                    FontSize="24"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand" />
+            </Frame>
+            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="TrueButton"
+                    Text="True"
+                    FontSize="32"
+                    CornerRadius="12"
+                    Margin="16, 8, 4, 16"
+                    HeightRequest="80"
+                    BackgroundColor="LightGreen"></Button>
+                
+                <Button x:Name="FalseButton"
+                    Text="False" 
+                    FontSize="32"
+                    CornerRadius="12"
+                    Margin="4, 8, 16, 16"
+                    HeightRequest="80"
+                    BackgroundColor="LightPink"
+                    Grid.Column="1"></Button>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
