@@ -8,6 +8,7 @@
     <ContentPage.Content>
         <StackLayout Rotation="0">
             <Label x:Name="QuestionCountLabel"
+                Text="{Binding TitleText}"
                 d:Text="Question 1 of 10"
                 FontSize="32"
                 Padding="4"
@@ -24,7 +25,9 @@
                    BorderColor="BurlyWood">
                 <Label x:Name="FactTextLabel"
                     Text="{Binding CurrentQuestionText}"
-                    d:Text="Fact goes here"
+                    d:Text="Fact goes here, and might be long enough to cover more than one line"
+                    Margin="10"
+                    HorizontalTextAlignment="Center"
                     FontSize="24"
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="CenterAndExpand" />

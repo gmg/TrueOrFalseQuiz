@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Text;
 using TrueOrFalseQuiz.Models;
 using Xamarin.Forms;
@@ -11,6 +12,11 @@ namespace TrueOrFalseQuiz.ViewModels
     class QuizPageModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
+        void OnPropertyChanged([CallerMemberName] string name = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
 
         public List<Question> questions;
 
@@ -24,7 +30,7 @@ namespace TrueOrFalseQuiz.ViewModels
             set
             {
                 _currentQuestionText = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(_currentQuestionText)));
+                OnPropertyChanged();
             }
         }
 
@@ -39,7 +45,7 @@ namespace TrueOrFalseQuiz.ViewModels
             set
             {
                 _currentAnswerValue = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(_currentAnswerValue)));
+                OnPropertyChanged();
             }
         }
 
@@ -54,7 +60,8 @@ namespace TrueOrFalseQuiz.ViewModels
             set
             {
                 _totalQuestions = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(_totalQuestions)));
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(TitleText));
             }
         }
 
@@ -69,10 +76,16 @@ namespace TrueOrFalseQuiz.ViewModels
             set
             {
                 _currentQuestionNumber = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(_currentQuestionNumber)));
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(TitleText));
             }
         }
 
+        public string TitleText
+        {
+            get { return $"Question {_currentQuestionNumber} of {_totalQuestions}"}
+        }
+        
         private int score;
 
         private Random random;
