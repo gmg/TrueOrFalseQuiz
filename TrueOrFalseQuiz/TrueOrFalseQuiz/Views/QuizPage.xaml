@@ -42,7 +42,8 @@
                     CornerRadius="12"
                     Margin="16, 8, 4, 16"
                     HeightRequest="80"
-                    BackgroundColor="LightGreen"></Button>
+                    BackgroundColor="LightGreen"
+                    Command="{Binding AnsweredTrue}"></Button>
                 
                 <Button x:Name="FalseButton"
                     Text="False" 
@@ -51,6 +52,7 @@
                     Margin="4, 8, 16, 16"
                     HeightRequest="80"
                     BackgroundColor="LightPink"
+                    Command="{Binding AnsweredFalse}"
                     Grid.Column="1"></Button>
             </Grid>
         </StackLayout>
