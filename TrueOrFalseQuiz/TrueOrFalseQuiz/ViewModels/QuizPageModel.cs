@@ -83,7 +83,7 @@ namespace TrueOrFalseQuiz.ViewModels
 
         public string TitleText
         {
-            get { return $"Question {_currentQuestionNumber} of {_totalQuestions}"}
+            get { return $"Question {_currentQuestionNumber} of {_totalQuestions}"; }
         }
         
         private int score;
@@ -117,7 +117,7 @@ namespace TrueOrFalseQuiz.ViewModels
 
 
             TotalQuestions = questions.Count;
-            CurrentQuestionNumber = 0;
+            CurrentQuestionNumber = 1;
 
             LoadQuestion();
 
