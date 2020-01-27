@@ -8,9 +8,19 @@
 
     <StackLayout>
         <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
+        <Label Text="True or False!" 
+           FontSize="32"
            HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+           VerticalOptions="EndAndExpand" />
+        <Label Text="A simple Xamarin.Forms quiz" 
+           FontSize="18"
+           HorizontalOptions="Center"
+           VerticalOptions="StartAndExpand" />
+        <Button Text="Tap here to start"
+           FontSize="20"
+           HeightRequest="60"
+           Clicked="Button_Clicked" />
+
     </StackLayout>
 
 </ContentPage>

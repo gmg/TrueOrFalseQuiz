@@ -17,5 +17,10 @@ namespace TrueOrFalseQuiz
         {
             InitializeComponent();
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            // load quiz view
+        }
     }
 }
