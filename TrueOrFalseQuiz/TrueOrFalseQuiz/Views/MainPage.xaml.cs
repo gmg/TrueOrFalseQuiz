@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TrueOrFalseQuiz.Views;
 using Xamarin.Forms;
 
 namespace TrueOrFalseQuiz
@@ -18,9 +19,9 @@ namespace TrueOrFalseQuiz
             InitializeComponent();
         }
 
-        private void StartQuiz(object sender, EventArgs e)
+        async void StartQuiz(object sender, EventArgs e)
         {
-            // load quiz view
+            await Navigation.PushAsync(new QuizPage());
         }
     }
 }

@@ -12,7 +12,7 @@ namespace TrueOrFalseQuiz
             InitializeComponent();
 
             //MainPage = new MainPage();
-            MainPage = new QuizPage();
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()
