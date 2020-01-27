@@ -21,7 +21,7 @@ namespace TrueOrFalseQuiz
 
         async void StartQuiz(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new QuizPage());
+            await Navigation.PushAsync(new QuizPage()).ConfigureAwait(false);
         }
     }
 }

@@ -16,7 +16,8 @@
                 FontSize="24"
                 VerticalOptions="Center" 
                 HorizontalOptions="CenterAndExpand" />
-            <Label Text="10 out of 10"
+            <Label x:Name="ScoreText"
+                d:Text="10 out of 10"
                 FontSize="24"
                 VerticalOptions="StartAndExpand" 
                 HorizontalOptions="CenterAndExpand" />

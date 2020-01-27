@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading.Tasks;
 using TrueOrFalseQuiz.Models;
+using TrueOrFalseQuiz.Views;
 using Xamarin.Forms;
 
 namespace TrueOrFalseQuiz.ViewModels
@@ -92,7 +94,7 @@ namespace TrueOrFalseQuiz.ViewModels
 
         public Command AnsweredTrue { get; }
         public Command AnsweredFalse { get; }
-
+        
         public QuizPageModel()
         {
             // initialise RNG
@@ -121,45 +123,45 @@ namespace TrueOrFalseQuiz.ViewModels
             // load first question
             LoadQuestion();
 
-            AnsweredTrue = new Command(() =>
+            AnsweredTrue = new Command(async () =>
             {
                 Debug.WriteLine("True button pressed");
                 
                 // check if answer is correct
                 if (_currentAnswerValue == true) score++;
 
-                // increase question counter
-                CurrentQuestionNumber++;
-
                 // load next question or results page
                 if (CurrentQuestionNumber < TotalQuestions)
                 {
+                    // increase question counter
+                    CurrentQuestionNumber++;
                     LoadQuestion();
                 }
                 else
                 {
                     Debug.WriteLine("End of Quiz");
+                    await ShowResults().ConfigureAwait(false);
                 }
             });
 
-            AnsweredFalse = new Command(() =>
+            AnsweredFalse = new Command(async () =>
             {
                 Debug.WriteLine("False button pressed");
                 
                 // check if answer is correct
                 if (_currentAnswerValue == false) score++;
                 
-                // increase question counter
-                CurrentQuestionNumber++;
-                
                 // load next question or results page
                 if (CurrentQuestionNumber < TotalQuestions)
                 {
+                    // increase question counter
+                    CurrentQuestionNumber++;
                     LoadQuestion();
                 } 
                 else
                 {
                     Debug.WriteLine("End of Quiz");
+                    await ShowResults().ConfigureAwait(false);
                 }
             });
         }
@@ -171,10 +173,7 @@ namespace TrueOrFalseQuiz.ViewModels
             CurrentAnswerValue = questions[index].Answer;
             questions.RemoveAt(index);
         }
-    
-        private void ShowResults()
-        {
-            // load results page
-        }
-}
+
+        private async Task ShowResults() => await Application.Current.MainPage.Navigation.PushAsync(new ResultsPage(score, _totalQuestions)).ConfigureAwait(false);
+    }
 }
