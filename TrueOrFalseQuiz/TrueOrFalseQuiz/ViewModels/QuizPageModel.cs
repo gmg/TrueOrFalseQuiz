@@ -98,8 +98,6 @@ namespace TrueOrFalseQuiz.ViewModels
             // initialise RNG
             random = new Random();
 
-
-
             // populate question list - replace with external data source in production
             questions = new List<Question>()
             {
@@ -115,14 +113,13 @@ namespace TrueOrFalseQuiz.ViewModels
                 new Question() { QuestionText="This is the last fact", Answer=true }
             };
 
-
+            // initialise quiz values
             TotalQuestions = questions.Count;
             CurrentQuestionNumber = 1;
-
-            LoadQuestion();
-
-            // set score
             score = 0;
+
+            // load first question
+            LoadQuestion();
 
             AnsweredTrue = new Command(() =>
             {
@@ -174,7 +171,10 @@ namespace TrueOrFalseQuiz.ViewModels
             CurrentAnswerValue = questions[index].Answer;
             questions.RemoveAt(index);
         }
-
-        // load results page
-    }
+    
+        private void ShowResults()
+        {
+            // load results page
+        }
+}
 }
