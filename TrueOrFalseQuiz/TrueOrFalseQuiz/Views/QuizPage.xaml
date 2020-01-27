@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="TrueOrFalseQuiz.Views.QuizPage">
+             x:Class="TrueOrFalseQuiz.Views.QuizPage"
+             NavigationPage.HasNavigationBar="false">
     <ContentPage.Content>
         <StackLayout Rotation="0">
             <Label x:Name="QuestionCountLabel"
