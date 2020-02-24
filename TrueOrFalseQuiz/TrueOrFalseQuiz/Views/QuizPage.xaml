@@ -21,7 +21,7 @@
 
             <Frame VerticalOptions="FillAndExpand"
                    BackgroundColor="AntiqueWhite"
-                   Margin="16, 16, 16, 8"
+                   Margin="16, 12, 16, 0"
                    CornerRadius="20"
                    BorderColor="BurlyWood">
                 <Label x:Name="FactTextLabel"
@@ -34,7 +34,7 @@
                     HorizontalOptions="CenterAndExpand" />
             </Frame>
             
-            <Grid>
+            <Grid Margin="16" ColumnSpacing="16">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
@@ -44,20 +44,18 @@
                     Text="True"
                     FontSize="32"
                     CornerRadius="12"
-                    Margin="16, 8, 4, 16"
                     HeightRequest="80"
                     BackgroundColor="LightGreen"
-                    Command="{Binding AnsweredTrue}"></Button>
+                    Command="{Binding AnsweredTrue}" />
                 
                 <Button x:Name="FalseButton"
                     Text="False" 
                     FontSize="32"
                     CornerRadius="12"
-                    Margin="4, 8, 16, 16"
                     HeightRequest="80"
                     BackgroundColor="LightPink"
                     Command="{Binding AnsweredFalse}"
-                    Grid.Column="1"></Button>
+                    Grid.Column="1" />
             </Grid>
         </StackLayout>
     </ContentPage.Content>
